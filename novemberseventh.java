@@ -16,16 +16,14 @@ public class novemberseventh{
     public static void reorderList(Node head) {
         if (head == null || head.next == null) return;
 
-    
         Node slow = head, fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
-
         Node second = slow.next;
-        slow.next = null;                 
+        slow.next = null;
         Node prev = null, cur = second;
         while (cur != null) {
             Node nxt = cur.next;
@@ -33,21 +31,19 @@ public class novemberseventh{
             prev = cur;
             cur = nxt;
         }
-        second = prev;                    
+        second = prev;
 
-        
         Node first = head;
         while (second != null) {
             Node t1 = first.next;
             Node t2 = second.next;
-
             first.next = second;
             second.next = t1;
-
             first = t1;
             second = t2;
         }
     }
+
  
 
     public static void printList(Node head){
